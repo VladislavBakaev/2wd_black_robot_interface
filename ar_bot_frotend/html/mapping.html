@@ -1,0 +1,61 @@
+<div class="container" style="height: 100%;">
+    <div class = "row" style="height: 100%;">
+        <div id ='map_body_row' class="col-1-2 center camera">
+            <div id='map_body' class="center" style="position: relative; height: auto;">
+                <img id='map_stream_slam' src="images/slam_load.png" width="100%"/>
+                <div id = "arr_slam" class="arrow" style ="width: 10%; position: absolute; left: 10%; top: 50%; z-index: 1; display: none;">
+                    <img src = "images/arrow.png" width ="100%">
+                </div>
+            </div>
+        </div>
+
+        <div class="col-1-2" style="height: 100%;">
+            <div class="row" style="height: 20%;">
+                <div class="col-1-2 center">
+                    <input id='get_point_slam' onclick="get_point_slam()" type="button" value="Задать целевую точку" class = 'disabled'>
+                </div>
+                <div class="col-1-2 center">
+                    <input onclick="start_slam(this,'map_stream_slam', mapManager)" type="button" value="Запустить SLAM">
+                </div>
+            </div>
+
+            <div class="row" style="height: 40%;">
+                <div class="col-1-2" style="height: 100%;">
+                    <div class="center" style="width: 100%; height: 100%;">
+                        <img src="images/joystick-base.png" width="50%"/>
+                    </div>
+                    <div id="stick1" class="center" style="height: 20%; width: 20%; position: relative; left: 40%; bottom: 60%;">
+                        <img src="images/joystick-red.png" width="100%"/>
+                    </div>
+                </div>
+                <div class="col-1-2" style="height: 100%;">
+                    <div class="row center" style="height: 50%;">
+                        <input onclick="send_flag('save_map')" type="button" value="Сохранить построенную карту" class = 'disabled'>
+                    </div>
+                    <div class="row center" style="height: 50%;">
+                        <input onclick="stop_slam('map_stream_slam')" type="button" value="Остановить SLAM" class = 'disabled'>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row center" style="height: 40%;">
+                <ul id="status_list"  class="category-list">
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // var feedback_timer = setInterval(get_feedback, 300, "status_list");
+    var inputs_slam = $('section#slam input')
+
+    var joystick1 = new JoystickController("stick1", 64, 8);
+    var arrow_slam = new Arrow('map_stream_slam', "load_slam_point", "get_point_slam", "arr_slam");
+    var mapManager = new MapMoveManager("map_stream_slam",'map_body')
+
+    function get_point_slam(){
+        arrow_slam.flag_point = true;
+        arrow_slam.cliked = 0;
+    }
+</script>

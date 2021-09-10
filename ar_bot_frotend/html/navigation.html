@@ -1,0 +1,71 @@
+<div class="container" style="height: 100%;">
+    <div class = "row" style="height: 100%;">
+        <div id ='map_body_nav_row' class="col-1-2 center camera">
+            <div id='map_nav_body' calss = 'centre' style="position: relative; height: auto;">
+                <img id='map_stream_nav' src="images/nav_load.png" width = "100%"/>
+                <div id = "arr_nav" class="arrow" style ="width: 10%; position: absolute; left: 10%; top: 50%; z-index: 1; display: none;">
+                    <img src = "images/arrow.png" width ="100%">
+                </div>
+            </div>
+        </div>
+
+        <div class="col-1-2" style="height: 100%;">
+            <div class="row" style="height: 20%;">
+                <div class="col-1-2 center">
+                    <input id="get_point_nav" onclick="get_point_nav()" type="button" value="Задать целевую точку" class="disabled">
+                </div>
+                <div class="col-1-2 center">
+                    <input onclick="start_nav(this, 'map_stream_nav')" type="button" value="Запустить навигацию">
+                </div>
+            </div>
+
+            <div class="row" style="height: 40%;">
+                <div class="col-1-2" style="height: 100%;">
+                    <div class="center" style="width: 100%; height: 100%;">
+                        <img src="images/joystick-base.png" width="50%"/>
+                    </div>
+                    <div id="stick2" class="center" style="height: 20%; width: 20%; position: relative; left: 40%; bottom: 60%;">
+                        <img src="images/joystick-red.png" width="100%"/>
+                    </div>
+                </div>
+                <div class="col-1-2" style="height: 100%;">
+                    <div class="row center" style="height: 33%;">
+                        <input onclick="stop_nav('map_stream_nav')" type="button" value="Остановить навигацию" class="disabled">
+                    </div>
+                    <div class="row center" style="height: 33%;">
+                        <input id="set_pose" onclick="set_pose()" type="button" value="Указать текущую позицию и ориентацию робота" class="disabled">
+                    </div>
+                    <div class="row center" style="height: 33%;">
+                        <input id="lift" onclick="lift_cmd(this)" type="button" value="Поднять паллету">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row center" style="height: 40%;">
+                <ul id="status_list_nav"  class="category-list">
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    var joystick2 = new JoystickController("stick2", 64, 8);
+
+    var arrow_nav = new Arrow('map_stream_nav', "load_nav_point", "get_point_nav","arr_nav");
+    var arrow_pose = new Arrow('map_stream_nav', "load_pose", "set_pose","arr_nav");
+    var mapManager_nav = new MapMoveManager("map_stream_nav",'map_nav_body')
+    var inputs_nav = $('section#navigation input')
+
+    // var feedback_nav_timer = setInterval(get_feedback, 300, "status_list_nav");
+
+    function get_point_nav(){
+        arrow_nav.flag_point = true;
+        arrow_nav.cliked = 0;
+    }
+
+    function set_pose(){
+        arrow_pose.flag_point = true;
+        arrow_pose.cliked = 0;
+    }
+</script>
