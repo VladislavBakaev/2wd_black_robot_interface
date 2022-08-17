@@ -21,14 +21,18 @@ function send_flag(route){
         });
 }
 function display_feedback(text,list_name){
+    try{
+        var status_json = JSON.parse(text);
+        $("#"+list_name).html(`<li>State:<span>${status_json["state"]}</span></li>
+        <li>Number of recoveries:<span>${status_json["number_of_recoveries"]}</span></li>
+        <li>Distance remaining:<span>${status_json["distance_remaining"]}</span></li>
+        <li>Navigation time:<span>${status_json["navigation_time"]}</span></li>
+        <li>Target point:<span>x: ${status_json["target"]["x"]}; y: ${status_json["target"]["y"]}; angle: ${status_json["target"]["angle"]}</span></li>
+        <li>Current pose:<span>x: ${status_json["current_pose"]["x"]}; y: ${status_json["current_pose"]["y"]}; angle: ${status_json["current_pose"]["angle"]}</span></li>`)
+    } catch {
+        return
+    }
 
-    var status_json = JSON.parse(text);
-    $("#"+list_name).html(`<li>State:<span>${status_json["state"]}</span></li>
-                            <li>Number of recoveries:<span>${status_json["number_of_recoveries"]}</span></li>
-                            <li>Distance remaining:<span>${status_json["distance_remaining"]}</span></li>
-                            <li>Navigation time:<span>${status_json["navigation_time"]}</span></li>
-                            <li>Target point:<span>x: ${status_json["target"]["x"]}; y: ${status_json["target"]["y"]}; angle: ${status_json["target"]["angle"]}</span></li>
-                            <li>Current pose:<span>x: ${status_json["current_pose"]["x"]}; y: ${status_json["current_pose"]["y"]}; angle: ${status_json["current_pose"]["angle"]}</span></li>`)
 }
 
 function start_slam(elem, stream, mapManager){

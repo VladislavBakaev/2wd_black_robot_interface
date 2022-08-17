@@ -3,20 +3,20 @@
 
 	<head>
 		<title>Robot Control</title>
-		<script src="/static/js/jquery-3.3.1.min.js"></script>
-		<link rel="stylesheet" type="text/css" href="/static/css/grid.css">
-		<link rel="stylesheet" type="text/css" href="/static/css/list.css">
-		<link rel="stylesheet" type="text/css" href="/static/css/main.css">
-		<link rel="stylesheet" type="text/css" href="/static/css/nav.css">
-		<link rel="stylesheet" type="text/css" href="/static/css/fonts_googleapis_com.css">
-		<link rel="stylesheet" type="text/css" href="/static/css/content.css">
-		<script src='/static/js/joy.js'></script>
-		<script src="/static/js/main.js"></script>
-		<script src="/static/js/arrow.js"></script>
-		<script src="/static/js/map_nav.js"></script>
-		<script src="/static/js/map_zone.js"></script>
-		<script src="/static/js/spapp.js"></script>
-		<script src="/static/js/map_move.js"></script>
+		<script src="js/jquery-3.3.1.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/grid.css">
+		<link rel="stylesheet" type="text/css" href="css/list.css">
+		<link rel="stylesheet" type="text/css" href="css/main.css">
+		<link rel="stylesheet" type="text/css" href="css/nav.css">
+		<link rel="stylesheet" type="text/css" href="css/fonts_googleapis_com.css">
+		<link rel="stylesheet" type="text/css" href="css/content.css">
+		<script src='js/joy.js'></script>
+		<script src="js/main.js"></script>
+		<script src="js/arrow.js"></script>
+		<script src="js/map_nav.js"></script>
+		<script src="js/map_zone.js"></script>
+		<script src="js/spapp.js"></script>
+		<script src="js/map_move.js"></script>
 	</head>
 
 	<body>
@@ -25,18 +25,18 @@
 
 		<div id="container-header" class="row">
             <nav>
-                <a id="slam-b" href="#slam" class="btn">SLAM (построить карту)</a>
-                <a id="map-zone-b" href="#map-zone" class="btn">Разметка карты</a>
-                <a id="navigation-b" href="#navigation" class="btn">Навигация по построенной карте</a>
-                <a id="control-b" href="#control" class="btn">Удаленное управление роботом</a>
+                <a id="slam-b" href="#slam" class="btn">SLAM</a>
+                <a id="map-zone-b" href="#map-zone" class="btn">Map formatting</a>
+                <a id="navigation-b" href="#navigation" class="btn">Navigation</a>
+                <!-- <a id="control-b" href="#control" class="btn">Remoute control</a> -->
             </nav>
 		</div>
 
 		<div id='content-body' class="row">
-            <section id="slam" src="/static/html/mapping.html"></section>
-            <section id="map-zone" src="/static/html/map_zone.html"></section>
-            <section id="navigation" src="/static/html/navigation.html"></section>
-            <section id="control" src="/static/html/control.html"></section>
+            <section id="slam" src="html/mapping.html"></section>
+            <section id="map-zone" src="html/map_zone.html"></section>
+            <section id="navigation" src="html/navigation.html"></section>
+            <!-- <section id="control" src="html/control.html"></section> -->
 		</div>
 		
 		<div id='footer' class="row">

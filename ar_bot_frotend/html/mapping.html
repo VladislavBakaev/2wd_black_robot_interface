@@ -12,10 +12,10 @@
         <div class="col-1-2" style="height: 100%;">
             <div class="row" style="height: 20%;">
                 <div class="col-1-2 center">
-                    <input id='get_point_slam' onclick="get_point_slam()" type="button" value="Задать целевую точку" class = 'disabled'>
+                    <input id='get_point_slam' onclick="get_point_slam()" type="button" value="Set target point" class = 'disabled'>
                 </div>
                 <div class="col-1-2 center">
-                    <input onclick="start_slam(this,'map_stream_slam', mapManager)" type="button" value="Запустить SLAM">
+                    <input onclick="start_slam(this,'map_stream_slam', mapManager)" type="button" value="Start SLAM">
                 </div>
             </div>
 
@@ -30,10 +30,10 @@
                 </div>
                 <div class="col-1-2" style="height: 100%;">
                     <div class="row center" style="height: 50%;">
-                        <input onclick="send_flag('save_map')" type="button" value="Сохранить построенную карту" class = 'disabled'>
+                        <input onclick="send_flag('save_map')" type="button" value="Save map" class = 'disabled'>
                     </div>
                     <div class="row center" style="height: 50%;">
-                        <input onclick="stop_slam('map_stream_slam')" type="button" value="Остановить SLAM" class = 'disabled'>
+                        <input onclick="stop_slam('map_stream_slam')" type="button" value="Stop SLAM" class = 'disabled'>
                     </div>
                 </div>
             </div>

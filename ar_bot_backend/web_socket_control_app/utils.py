@@ -16,7 +16,7 @@ def update_vel(vel):
 class ActionFeedbackManager():
     def __init__(self):
         self.a_f = ActionFeedback()
-        self.rate = 10
+        self.rate = 1
         self.ros_th = Thread(target = self.start_node, args=(self.a_f, )).start()
     
     def start_node(self, node):

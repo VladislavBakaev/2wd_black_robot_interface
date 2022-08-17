@@ -12,10 +12,10 @@
         <div class="col-1-2" style="height: 100%;">
             <div class="row" style="height: 20%;">
                 <div class="col-1-2 center">
-                    <input id="get_point_nav" onclick="get_point_nav()" type="button" value="Задать целевую точку" class="disabled">
+                    <input id="get_point_nav" onclick="get_point_nav()" type="button" value="Set target point" class="disabled">
                 </div>
                 <div class="col-1-2 center">
-                    <input onclick="start_nav(this, 'map_stream_nav')" type="button" value="Запустить навигацию">
+                    <input onclick="start_nav(this, 'map_stream_nav')" type="button" value="Start navigation">
                 </div>
             </div>
 
@@ -29,14 +29,11 @@
                     </div>
                 </div>
                 <div class="col-1-2" style="height: 100%;">
-                    <div class="row center" style="height: 33%;">
-                        <input onclick="stop_nav('map_stream_nav')" type="button" value="Остановить навигацию" class="disabled">
+                    <div class="row center" style="height: 50%;">
+                        <input onclick="stop_nav('map_stream_nav')" type="button" value="Stop navigation" class="disabled">
                     </div>
-                    <div class="row center" style="height: 33%;">
-                        <input id="set_pose" onclick="set_pose()" type="button" value="Указать текущую позицию и ориентацию робота" class="disabled">
-                    </div>
-                    <div class="row center" style="height: 33%;">
-                        <input id="lift" onclick="lift_cmd(this)" type="button" value="Поднять паллету">
+                    <div class="row center" style="height: 50%;">
+                        <input id="set_pose" onclick="set_pose()" type="button" value="Set current pose and orientation" class="disabled">
                     </div>
                 </div>
             </div>

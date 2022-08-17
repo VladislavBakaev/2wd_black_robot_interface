@@ -110,7 +110,7 @@ class ModuleManager():
 
 class PointClientManager():
     def __init__(self):
-        self.t_p_c = ToPoseClient('')
+        self.t_p_c = ToPoseClient()
         self.ros_th = Thread(target = self.start_node, args=(self.t_p_c, )).start()
     
     def start_node(self, node):

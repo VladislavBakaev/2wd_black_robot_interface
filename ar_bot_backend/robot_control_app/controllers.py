@@ -32,19 +32,20 @@ def load_zone():
 
 @module.route('/load_slam_point', methods=['POST'])
 def load_slam_point():
-    data = request.json
+    data = json.loads(request.data.decode())
     point_manager.send_point(data['x'], data['y'], data['angle'])
     return Response('Slam point was saved')
 
 @module.route('/load_nav_point', methods=['POST'])
 def load_nav_point():
-    data = request.json
+    data = json.loads(request.data.decode())
+
     point_manager.send_point(data['x'], data['y'], data['angle'])
     return Response('Navigation point was saved')
 
 @module.route('/load_pose', methods=['POST'])
 def load_pose():
-    data = request.json
+    data = json.loads(request.data.decode())
     point_manager.set_pose(data['x'], data['y'], data['angle'])
     return Response('Robot pose was saved')
 
